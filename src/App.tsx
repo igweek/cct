@@ -251,8 +251,9 @@ const FeatureCard = ({ icon: Icon, title, desc, delay }: { icon: any, title: str
 
 const Vision = () => {
   return (
-    <section id="vision" className="py-32 relative">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="vision" className="py-32 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/3">
             <div className="flex items-center gap-3 mb-6">
@@ -310,8 +311,9 @@ const CourseCard = ({ icon: Icon, title, desc, sub }: { icon: any, title: string
 
 const Curriculum = () => {
   return (
-    <section id="curriculum" className="py-32 bg-surface/30">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="curriculum" className="py-32 bg-surface/30 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-2 h-8 bg-primary rounded-full" />
@@ -437,8 +439,9 @@ const CareerStep = ({ icon: Icon, title, role, level, isLast }: { icon: any, tit
 
 const CareerPath = () => {
   return (
-    <section id="career" className="py-32">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="career" className="py-32 relative overflow-hidden">
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-2 h-8 bg-primary rounded-full" />
@@ -522,8 +525,10 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-32 relative">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="faq" className="py-32 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-30 pointer-events-none" />
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="mb-16 text-center">
            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
               <span>常见问题</span>
@@ -585,8 +590,9 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 bg-surface-highlight/20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="contact" className="py-32 bg-surface-highlight/20 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">联系与咨询</h2>
@@ -621,7 +627,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-bold mb-1">电话</h4>
-                  <p className="text-text-muted">15358816757</p>
+                  <p className="text-text-muted">18018126668</p>
                 </div>
               </div>
             </div>
@@ -713,18 +719,41 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background text-text-main selection:bg-primary/30 selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <Vision />
-        <Curriculum />
-        <Partnership />
-        <CareerPath />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-background text-text-main selection:bg-primary/30 selection:text-white relative overflow-hidden">
+      {/* Global Ambient Background - Intensified */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        {/* Visible Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
+        
+        {/* Top center strong blue glow */}
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 blur-[100px] rounded-full" />
+        
+        {/* Bottom right purple/blue glow */}
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-600/20 blur-[120px] rounded-full" />
+        
+        {/* Middle left cyan glow */}
+        <div className="absolute top-[40%] left-[-10%] w-[500px] h-[500px] bg-cyan-500/10 blur-[100px] rounded-full" />
+      </div>
+
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <Vision />
+          <Curriculum />
+          <Partnership />
+          <CareerPath />
+          <FAQ />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
