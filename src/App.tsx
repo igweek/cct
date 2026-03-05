@@ -620,7 +620,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-bold mb-1">电话</h4>
-                  <p className="text-text-muted">18018126668</p>
+                  <p className="text-text-muted">15358816757</p>
                 </div>
               </div>
             </div>
