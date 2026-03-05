@@ -54,7 +54,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
@@ -198,8 +198,10 @@ const Hero = () => {
               <h1 className="font-display font-bold text-4xl sm:text-6xl md:text-8xl leading-tight mb-6">
                 云计算专业
               </h1>
+              <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-medium mb-2">
+                人工智能发展的重要基础设施
+              </h2>
               <h2 className="text-xl sm:text-2xl md:text-3xl text-text-muted font-light mb-2">
-                人工智能发展的重要基础设施<br />
                 构建面向未来的云原生技术体系
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-text-muted/60 tracking-[0.15em] md:tracking-[0.2em] uppercase mb-12">
@@ -311,7 +313,7 @@ const CourseCard = ({ icon: Icon, title, desc, sub }: { icon: any, title: string
 
 const Curriculum = () => {
   return (
-    <section id="curriculum" className="py-32 bg-surface/30 relative overflow-hidden">
+    <section id="curriculum" className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-16">
@@ -376,7 +378,7 @@ const Partnership = () => {
   ];
 
   return (
-    <section id="partnership" className="py-32 border-y border-white/5 bg-surface/20 relative overflow-hidden">
+    <section id="partnership" className="py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent opacity-50" />
       
@@ -590,7 +592,7 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 bg-surface-highlight/20 relative overflow-hidden">
+    <section id="contact" className="py-32 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
@@ -701,7 +703,7 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/5 py-12 bg-surface-highlight/10">
+    <footer className="border-t border-white/5 py-12">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2 text-text-muted">
           <Cloud size={20} />
