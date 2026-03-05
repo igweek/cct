@@ -24,7 +24,8 @@ import {
   Phone,
   Building2,
   Menu,
-  X
+  X,
+  Plus
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -48,7 +49,8 @@ const Navbar = () => {
     { name: '专业定位', id: 'vision' },
     { name: '课程体系', id: 'curriculum' },
     { name: '校企合作', id: 'partnership' },
-    { name: '就业前景', id: 'career' }
+    { name: '就业前景', id: 'career' },
+    { name: '帮助', id: 'faq' }
   ];
 
   return (
@@ -480,6 +482,106 @@ const CareerPath = () => {
   );
 };
 
+const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "学习云计算需要会编程吗？",
+      answer: "需要具备一定的编程基础，但不需要成为软件开发专家。云计算更侧重系统管理与自动化运维，常用语言包括 Python 和 Shell，用于编写自动化脚本、管理服务器和部署应用。"
+    },
+    {
+      question: "学习云计算对数学要求高吗？",
+      answer: "云计算专业对数学的要求不像人工智能或数据科学那样高。一般需要具备基础的数学能力，例如逻辑思维和简单的数据计算，更重要的是对计算机技术和网络系统的理解能力。"
+    },
+    {
+      question: "没有计算机基础可以学习吗？",
+      answer: "可以。课程通常会从基础知识开始，例如计算机网络、Linux系统以及服务器管理等。只要具备学习兴趣并愿意进行实践训练，大多数学生都可以逐步掌握相关技术。"
+    },
+    {
+      question: "云计算和人工智能有什么关系？",
+      answer: "云计算为人工智能提供计算资源和数据处理平台。许多人工智能模型的训练与部署都依赖云平台完成，因此云计算是人工智能发展的重要基础设施之一。"
+    },
+    {
+      question: "云计算专业主要学习什么内容？",
+      answer: "云计算专业主要学习计算机系统和云平台相关技术，包括 Linux 操作系统、计算机网络、虚拟化技术、容器技术（Docker / Kubernetes）、云平台部署、自动化运维以及云安全等内容。通过系统学习，学生可以掌握现代互联网基础设施的构建与运维能力。"
+    },
+    {
+      question: "学习过程中需要做很多实验吗？",
+      answer: "需要。云计算是一门实践性很强的专业，学生会通过搭建服务器、部署云平台、配置网络环境以及构建容器集群等实验来掌握技术。这些实践经验对于未来就业非常重要。"
+    },
+    {
+      question: "云计算专业就业前景怎么样？",
+      answer: "随着企业数字化转型，大量业务系统正在向云平台迁移，对云计算技术人才的需求持续增长。互联网企业、通信运营商、金融机构以及各类企事业单位都需要云计算相关技术人员，因此整体就业前景较为广阔。"
+    },
+    {
+      question: "云计算和软件工程有什么区别？",
+      answer: "软件工程主要侧重软件开发，例如应用程序设计与系统开发；而云计算更关注服务器、网络、云平台和系统运维等基础设施。简单来说，软件工程更偏向“开发软件”，而云计算更偏向“构建和管理运行平台”。"
+    }
+  ];
+
+  return (
+    <section id="faq" className="py-32 relative">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="mb-16 text-center">
+           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
+              <span>常见问题</span>
+           </div>
+           <h2 className="text-3xl md:text-4xl font-bold mb-6">答疑解惑</h2>
+           <p className="text-text-muted text-lg max-w-2xl mx-auto">
+             关于专业学习、就业方向与课程设置的详细解答
+           </p>
+        </div>
+
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div 
+              key={index} 
+              className={`group bg-surface border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 ${
+                openIndex === index ? 'bg-surface-highlight border-primary/20 shadow-lg' : 'hover:border-white/10'
+              }`}
+            >
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full flex items-center justify-between p-6 text-left"
+              >
+                <div className="flex items-center gap-6">
+                  <span className={`text-2xl font-display font-bold transition-colors duration-300 ${
+                    openIndex === index ? 'text-primary' : 'text-white/10 group-hover:text-white/20'
+                  }`}>
+                    0{index + 1}
+                  </span>
+                  <span className={`text-lg font-medium transition-colors ${
+                    openIndex === index ? 'text-white' : 'text-text-muted group-hover:text-white'
+                  }`}>
+                    {faq.question}
+                  </span>
+                </div>
+                <div className={`shrink-0 ml-4 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${
+                  openIndex === index 
+                    ? 'bg-primary border-primary text-white rotate-45' 
+                    : 'border-white/10 text-text-muted bg-white/5 group-hover:border-white/20'
+                }`}>
+                  <Plus size={16} />
+                </div>
+              </button>
+              <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                  openIndex === index ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 pl-[4.5rem] text-text-muted leading-relaxed border-t border-white/5 pt-4">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Contact = () => {
   return (
     <section id="contact" className="py-32 bg-surface-highlight/20">
@@ -618,6 +720,7 @@ export default function App() {
         <Curriculum />
         <Partnership />
         <CareerPath />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
