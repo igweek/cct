@@ -200,6 +200,8 @@ const Hero = () => {
               </h1>
               <h2 className="text-xl sm:text-2xl md:text-3xl text-text-muted font-light mb-2">
                 构建面向未来的云原生技术体系
+                数字经济时代的重要基础设施
+                人工智能发展的关键技术
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-text-muted/60 tracking-[0.15em] md:tracking-[0.2em] uppercase mb-12">
                 Building Future-Oriented Cloud-Native Ecosystems
