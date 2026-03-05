@@ -436,9 +436,16 @@ const CareerPath = () => {
   return (
     <section id="career" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-16">
-          <div className="w-2 h-8 bg-primary rounded-full" />
-          <h2 className="text-3xl font-bold">职业发展路径</h2>
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-2 h-8 bg-primary rounded-full" />
+            <h2 className="text-3xl font-bold">就业前景</h2>
+          </div>
+          <div className="space-y-4 text-text-muted leading-relaxed text-lg border-l-2 border-white/10 pl-6 w-full">
+            <p>
+              随着云计算、大数据与人工智能技术的快速发展，越来越多的企业将业务系统部署到云平台，对云计算技术人才的需求持续增长。云计算专业毕业生可在 <span className="text-white font-medium">互联网企业</span>、<span className="text-white font-medium">软件公司</span>、<span className="text-white font-medium">金融机构</span>、<span className="text-white font-medium">政府信息中心</span> 以及各类 <span className="text-white font-medium">企事业单位</span> 从事云平台运维、云应用开发、系统部署与自动化运维等工作，就业面广、发展空间大。
+            </p>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row gap-12 md:gap-4">
@@ -542,7 +549,9 @@ const Contact = () => {
                   alert('留言发送成功！我们会尽快联系您。');
                   form.reset();
                 } else {
-                  alert('发送失败，请稍后重试。');
+                  const errorData = await response.json();
+                  console.error('Server Error:', errorData);
+                  alert(`发送失败: ${errorData.details || errorData.error || '请检查网络或配置'}`);
                 }
               } catch (error) {
                 console.error('Error:', error);
